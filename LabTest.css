@@ -1,0 +1,42 @@
+
+#gaugesDiv{
+		width:90%;
+		padding:0px;
+		background: rgb(200,200,200);
+		margin: 10px 10px 10px 10px;
+		border: 2px solid black;
+
+		/* Round each corner of the generated rectangle */
+		border-radius: 8px;
+		-moz-border-radius: 8px;   
+		-webkit-border-radius: 8px;   
+}
+
+/* The status line is id="stat" so it can be styled individually */
+#status
+{
+		text-align: center;	
+		width: 90%;
+		height: 60px;
+		font-family: Fixed, monospace;
+		font-size: 22px;
+        background: rgb(200,200,200);
+		
+		/* Draw a rectangle around a text */
+		border: 1px solid black;    
+		
+		/* Round each corner of the generated rectangle */
+		border-radius: 8px;
+		-moz-border-radius: 8px;   
+		-webkit-border-radius: 8px;   
+		padding: 0px 0px;
+		margin: 0px 0px 0px 4px;
+}                
+
+canvas{
+		background: rgb(255,255,255);
+		border: 2px solid black;
+		border-radius: 6px;
+		-moz-border-radius: 6px;   
+		-webkit-border-radius: 6px;   
+}

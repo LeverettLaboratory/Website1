@@ -1,0 +1,103 @@
+body{
+	background:#83A083;
+}	
+h1 {
+	color:white; font-size:32pt; text-align:center; 
+    font-family:arial,sans-serif; font-weight:bold;
+}
+table{ 
+	width: 100%;
+	padding: 0px;
+	border-spacing: 0px;
+}
+
+td {
+	text-align:center;	
+	background:#008000
+}
+p {
+	color:black; font-size:12pt; text-align:justify; 
+   	font-family:arial,sans-serif
+}
+p.foot {
+	color:white; font-size:9pt; text-align:center; 
+    font-family:arial,sans-serif; font-weight:bold
+}
+#labLinks{
+	float:left;
+	width:180px;
+	padding:10px;
+	background:#B3D4B3;
+	margin: 10px 10px 10px 0px;
+}	
+#labMain {
+	background:#B3D4B3;
+	padding:20px;
+	margin:10px 0px 10px 210px;
+}
+#thumbs img{
+	margin: 4px;
+	padding: 4px;
+	width: 90%;
+}
+#thumbs table{	
+	margin: 4px;
+	padding: 4px;
+	background: #B3D4B3;
+}
+#thumbs td{
+	margin: 4px;
+	padding: 4px;
+	background: #83A083;	
+}
+
+
+/* Remove the lines around this image used as a link */
+#topLogo img {
+	border: none;
+	padding-left:20px;
+}	
+#topLogo a:link {
+	border: none;
+}	
+#topLogo a:visited {
+	border: none;
+}	
+
+/* Make the links white since background in the labLink div is green */
+a:link,a:visited,a:active {
+    font-family:arial,sans-serif; font-size:18pt;
+}
+a:link{ color:#000000
+}
+a:visited{ color:#333333
+}
+
+/* Draw a rounded rectangle around a text */
+.button    
+{
+		font-weight: bold;
+		text-align: center;
+		font-size: 16px;
+		float: none;
+		width:100px;
+		height:24px;
+
+		/* text is white on the button */
+		color: black;	
+		background: white;
+	
+		/* Draw a rectangle around a text */
+		border: 2px solid black;    
+		
+		/* Round each corner of the generated rectangle */
+		border-radius: 8px;
+		-moz-border-radius: 8px;   
+		-webkit-border-radius: 8px;   
+		padding: 4px 4px;
+		margin: 4px;
+
+
+}
+
+

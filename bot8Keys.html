@@ -1,0 +1,243 @@
+<!-- had to add onclick="null" to all the buttons or iPod (safari) won't generate events at all -->
+   
+<!-- maybe want to move gaugesDiv into its own file so able to include of not -->
+
+<div id="gaugesDiv">
+	<!-- important to specify canvas size here not in css.  otherwise get weird aspect ratios -->
+    <canvas class="s1" width="118" height="118" id="canvas1">Canvas 1</canvas>	 
+    <canvas class="s1" width="118" height="118" id="canvas2">Canvas 2</canvas>	 
+    <canvas class="s1" width="118" height="118" id="canvas3">Canvas 3</canvas>	 
+    <canvas class="s1" width="118" height="118" id="canvas4">Canvas 4</canvas>	 
+    <canvas class="s1" width="118" height="118" id="canvas5">Canvas 5</canvas>	 
+
+</div>
+
+<div id="keysDiv">
+	                
+     <div class="cButton"  >
+         <div class="button" onclick="null" id="mainArcL">  <image id="imgArcL" src=imgArcL.png> </div>
+         <div class="button" onclick="null" id="mainPivL">  <image id="imgPivL" src=imgPivL.png> </div>
+         <div class="button" onclick="null" id="mainCraL">  <image id="imgCraL" src=imgCraL.png> </div>
+         <div class="button" onclick="null" id="mainSonarOn">Sonar On</div>
+     </div>
+     <div class="cButton"  >
+         <div class="button" onclick="null" id="mainFwd">  <image id="imgFwd" src=imgFwd.png> </div>
+         <div class="button" onclick="null" id="mainHalt">  <image id="imgHalt" src=imgHalt.png> </div>
+         <div class="button" onclick="null" id="mainBack">  <image id="imgBack" src=imgBack.png> </div>
+         <div class="button" onclick="null" id="mainSonarOff">Sonar Off</div>	
+     </div>
+     <div class="cButton"  >
+         <div class="button" onclick="null" id="mainArcR">  <image id="imgArcR" src=imgArcR.png> </div>
+         <div class="button" onclick="null" id="mainPivR">  <image id="imgPivR" src=imgPivR.png> </div>
+         <div class="button" onclick="null" id="mainCraR">  <image id="imgCraR" src=imgCraR.png> </div>
+         <div class="button" onclick="null" id="mainSonarPing">Sonar Ping</div>
+     </div>
+     <div class="cButton"  >
+         <div class="button" onclick="null" id="mainClawUp">Claw Up</div>	
+         <div class="button" onclick="null" id="mainClawDown">Claw Down</div>	
+         <div class="button" onclick="null" id="mainClawInit">Claw Init</div>	
+         <div class="button" onclick="null" id="mainDrive">Drive</div>
+     </div>
+     <div class="cButton"  >
+         <div class="button" onclick="null" id="mainLampRed">Red</div>	
+         <div class="button" onclick="null" id="mainLampBlue">Blue</div>	
+         <div class="button" onclick="null" id="mainLampGreen">Green</div>	
+         <div class="button" onclick="null" id="mainLampOff">Off</div>	
+     </div>
+
+</div>
+
+<div id="popupCanvas" class="popupDiv">
+     <div class="popupLabel" id="popupCanvasTitle">Canvas Menu</div>
+     <div class="cButton"  >
+         <div class="button" onclick="null" id="canvasBatSig">Bat/Sig</div>
+         <div class="button" onclick="null" id="canvasCompass">Compass</div>
+     </div>
+     <div class="cButton"  >
+         <div class="button" onclick="null" id="canvasPower">Power</div>
+         <div class="button" onclick="null" id="canvasRange">Range</div>
+     </div>
+     <div class="cButton"  >
+         <div class="button" onclick="null" id="canvasClaw">Claw</div>
+         <div class="button" onclick="null" ></div>
+     </div>
+     <div class="cButton"  >
+         <div class="button" onclick="null" id="canvasNone">None</div>
+         <div class="button" onclick="null" ></div>
+     </div>
+     <div class="cButton"  >
+         <div class="button" onclick="null" id="canvasCancel">Cancel</div>
+         <div class="button" onclick="null" ></div>
+     </div>
+</div>
+
+<div id="popupMove" class="popupDiv">
+     <div class="popupLabel" id="popupMoveTitle">Move Menu</div>
+     <div class="cButton"  >
+         <div class="button" onclick="null" id="move1">1</div>
+     </div>
+     <div class="cButton"  >
+         <div class="button" onclick="null" id="move2">2</div>
+     </div>
+     <div class="cButton"  >
+         <div class="button" onclick="null" id="move5">5</div>
+     </div>
+     <div class="cButton"  >
+         <div class="button" onclick="null" id="move10">10</div>
+     </div>
+     <div class="cButton"  >
+         <div class="button" onclick="null" id="moveCancel">Cancel</div>
+     </div>
+</div>
+								
+<div id="popupPivot" class="popupDiv">
+     <div class="popupLabel" id="popupPivotTitle">Pivot Menu</div>
+     <div class="cButton"  >
+         <div class="button" onclick="null" id="pivot1">1</div>
+         <div class="button" onclick="null" id="pivot30">30</div>
+     </div>
+     <div class="cButton"  >
+         <div class="button" onclick="null" id="pivot2">2</div>
+         <div class="button" onclick="null" id="pivot45">45</div>
+     </div>
+     <div class="cButton"  >
+         <div class="button" onclick="null" id="pivot5">5</div>
+         <div class="button" onclick="null" id="pivot60">60</div>
+     </div>
+     <div class="cButton"  >
+         <div class="button" onclick="null" id="pivot15">15</div>
+         <div class="button" onclick="null" id="pivot90">90</div>
+     </div>
+     <div class="cButton"  >
+         <div class="button" onclick="null" id="pivotCancel">Cancel</div>
+         <div class="button" onclick="null"></div>
+     </div>
+</div>
+
+<div id="popupArc" class="popupDiv">
+     <div class="popupLabel" id="popupArcTitle">Arc Menu</div>
+     <div class="cButton"  >
+         <div class="button" onclick="null" id="arc15-5">15 deg 5"</div>
+         <div class="button" onclick="null" id="arc15-10">15 deg 10"</div>
+         <div class="button" onclick="null" id="arc15-20">15 deg 20"</div>
+     </div>
+     <div class="cButton"  >
+         <div class="button" onclick="null" id="arc30-5">30 deg 5"</div>
+         <div class="button" onclick="null" id="arc30-10">30 deg 10"</div>
+         <div class="button" onclick="null" id="arc30-20">30 deg 20"</div>
+     </div>
+     <div class="cButton"  >
+         <div class="button" onclick="null" id="arc45-5">45 deg 5"</div>
+         <div class="button" onclick="null" id="arc45-10">45 deg 10"</div>
+         <div class="button" onclick="null" id="arc45-20">45 deg 20"</div>
+     </div>
+     <div class="cButton"  >
+         <div class="button" onclick="null" id="arc90-5">90 deg 5"</div>
+         <div class="button" onclick="null" id="arc90-10">90 deg 10"</div>
+         <div class="button" onclick="null" id="arc90-20">90 deg 20"</div>
+     </div>
+     <div class="cButton"  >
+         <div class="button" onclick="null" id="arcCancel">Cancel</div>
+         <div class="button" onclick="null"></div>
+         <div class="button" onclick="null"></div>
+     </div>
+</div>
+
+<div id="popupDrive" class="popupDiv">
+     <div class="popupLabel" id="popupDriveTitle">Drive Menu</div>
+     <div class="cButton"  >
+         <div class="button" onclick="null">Claw Up</div>
+         <div class="button" onclick="null">Full Up</div>
+         <div class="button" onclick="null">Left</div>
+     </div>
+     <div class="cButton"  >
+         <div class="button" onclick="null"></div>
+         <div class="button" onclick="null"></div>
+         <div class="button" onclick="null">Center</div>
+     </div>
+     <div class="cButton"  >
+         <div class="button" onclick="null">Claw Down</div>
+         <div class="button" onclick="null">Full Down</div>
+         <div class="button" onclick="null">Right</div>
+     </div>
+     <div class="cButton"  >
+         <div class="button" onclick="null">Fwd</div>
+         <div class="button" onclick="null">Halt</div>
+         <div class="button" onclick="null">Back</div>
+     </div>
+     <div class="cButton"  >
+		<!-- important to specify canvas size here not in css.  otherwise get weird aspect ratios -->
+         <canvas class="fsi" width="20" height="154" id="canvas7">Canvas 7</canvas>	 
+         <div class="sm-button" onclick="null">cancel</div>
+     </div>
+	<!-- important to specify canvas size here not in css.  otherwise get weird aspect ratios -->
+     <canvas class="tsi" width="370" height="20" id="canvas6">Canvas 6</canvas>  	 
+</div>
+
+<div id="popupLamp" class="popupDiv">
+     <div class="popupLabel" id="popupLampTitle">Lamp Menu</div>
+     <div class="cButton"  >
+         <div class="button" onclick="null" id="lampRed">Red</div>
+     </div>
+     <div class="cButton"  >
+         <div class="button" onclick="null" id="lampGreen">Green</div>
+     </div>
+     <div class="cButton"  >
+         <div class="button" onclick="null" id="lampBlue">Blue</div>
+     </div>
+     <div class="cButton"  >
+         <div class="button" onclick="null" id="lampOff">Off</div>
+     </div>
+     <div class="cButton"  >
+         <div class="button" onclick="null" id="lampCancel">Cancel</div>
+     </div>
+</div>
+
+<div id="popupProgram" class="popupDiv">
+     <div class="popupLabel" id="popupProgramTitle">Program Menu</div>
+     <div class="cButton"  >
+         <div class="button" onclick="null" id="programCircleR">Circle R</div>
+     </div>
+     <div class="cButton"  >
+         <div class="button" onclick="null" id="programCircleL">Circle L</div>
+     </div>
+     <div class="cButton"  >
+         <div class="button" onclick="null" ></div>
+     </div>
+     <div class="cButton"  >
+         <div class="button" onclick="null" ></div>
+     </div>
+     <div class="cButton"  >
+         <div class="button" onclick="null" id="programCancel">Cancel</div>
+     </div>
+</div>
+
+								
+<div id="popupConfig" class="popupDiv">
+     <div class="popupLabel"  id="popupConfigTitle">Config Menu</div>
+     <div class="cButton"  >
+         <div class="button" onclick="null" id="configStatOn">Stat On</div>
+         <div class="button" onclick="null" id="configStatOff">Stat Off</div>
+     </div>
+     <div class="cButton"  >
+         <div class="button" onclick="null" id="configScreen">Screen</div>
+         <div class="button" onclick="null" id="configClawInit">Claw Init</div>
+     </div>
+      <div class="cButton"  >
+         <div class="button" onclick="null" id="configSonarOn">Sonar On</div>
+         <div class="button" onclick="null" id="configSonarOff">Sonar Off</div>
+     </div>
+     <div class="cButton"  >
+         <div class="button" onclick="null" id="configSonarPing">Sonar Ping</div>
+         <div class="button" onclick="null" ></div>
+     </div>
+    <div class="cButton"  >
+         <div class="button" onclick="null" id="configCancel">Cancel</div>
+         <div class="button" onclick="null"></div>
+     </div>
+</div>
+
+<div id="status" onclick="null">Not Ready</div>
+								 
+		
+								

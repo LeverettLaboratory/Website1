@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />  
+		<!-- Try getting this web-app to run full screen on the ipod touch -->
+                <meta name="apple-mobile-web-app-capable" content="yes" />
+                <!-- Add a splash screen during startup -->
+                <link rel="apple-touch-startup-image" href="/LL-bot3-splash.png">
+		
+                <title>Leverett Laboratory -- Scan-o-rama Camera  -- Image Page</title> 
+		
+
+		<!-- The scancam.css file is used to adjust the page appearance -->
+		<link rel="stylesheet" href="scancam.css" type="text/css" />
+		
+		<!-- scancam.js file shows how to handle iPhone orientation events -->
+                <!-- also contains the XMLHttpRequest and response scripts -->
+		<script type="text/javascript" src="scancam.js"></script>
+
+                <!-- This script should execute as soon as the page is loaded -->
+                <script language="javascript" type="text/javascript">
+                var request = false;
+                try{
+                    request = new XMLHttpRequest();
+                }catch(failed){
+                    request = false;
+                }
+
+                if(!request){
+                    alert("Error initializing XMLHttpRequest!");
+                }
+                </script>
+</head>
+
+
