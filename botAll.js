@@ -218,7 +218,7 @@ function updateStatus(){
 	            // alert("JSON data: "+request2.responseText);
 	            // new symbology for battery and signal
 	            updateCanvas();    
-	            document.getElementById("status").innerHTML = "Rover is Rocking";   
+	            //document.getElementById("status").innerHTML = "Rover is Rocking";   
             }catch(e){
                 document.getElementById("status").innerHTML = "Rover bad status";               	
             }
@@ -551,6 +551,71 @@ function drawClaw(can){
 	}
 
 }
+function drawGrip(can){
+	// This draws the grip indicators for motor C 
+	// can is the canvas id to draw into assumed size is 100 high, 118  wide
+	
+	// Retrieve the signals from the sensorData object
+	var PosC =  -(Math.round(getSensor("PosC") / 65));
+	var PowC =  -getSensor("PowerC");
+	var Grip = getSensor("Grip");
+		
+	// general variables
+	c=document.getElementById(can)
+	var ctx = c.getContext("2d");
+	var wide = c.width;
+	var high = c.height;
+	
+	ctx.shadowOffsetX = 5;
+	ctx.shadowOffsetY = 5;
+	ctx.shadowBlur = 2;
+	ctx.shadowColor = "rgba(0, 0, 0, 0.5)";
+	 
+	// limits and scaled value
+	var xmin = 0;
+	var xmax = 120;
+	var sPosC = PosC;
+		
+	ctx.clearRect(0, 0, wide, high);	// clear any prior drawing
+
+	// scale the motor C position
+	if(sPosC>xmax)sPosC=xmax;
+	if(sPosC<xmin)sPosC=xmin;
+	sPosC=(sPosC-xmin)/(xmax-xmin)*high*0.75;
+	// select color
+	ctx.fillStyle = "rgb(0,255,0)";
+	// draw the bar graph
+	ctx.fillRect(10,high*0.75-sPosC,wide*0.3,sPosC);
+			
+	var pmax = 100;
+	var spa = Math.abs(PowC);
+	if(spa>pmax)spa=pmax;
+	spa=spa/pmax*high*0.375;
+
+	if(PowC==0){
+		ctx.fillStyle = "rgb(0,0,0)";
+		ctx.fillRect(10+wide/2,high*0.375-1,wide*0.3,2);		
+	}else{
+		if(PowC>0){
+			ctx.fillStyle = "rgb(120,255,120)";
+			ctx.fillRect(10+wide/2,high*0.375-spa,wide*0.3,spa);
+		}else{
+			ctx.fillStyle = "rgb(120,120,255)";
+			ctx.fillRect(10+wide/2,high*0.375,wide*0.3,spa);
+		}
+	}
+
+	// label and numeric
+	ctx.shadowOffsetX = 2;
+	ctx.shadowOffsetY = 2;
+	ctx.fillStyle = "Black";
+	ctx.font = "16px Arial";
+	ctx.fillText(PosC,10,high*0.70);
+	ctx.fillText("Grip",10,high*0.95);
+	ctx.fillText(PowC,10+wide/2,high*0.70);
+	ctx.fillText("Power",10+wide/2,high*0.95);	
+
+}
 
 function drawPitchRoll(can){
 	// This draws Pitch and Roll indicators for a bot with an accelerometer 
@@ -695,6 +760,54 @@ function drawCompass(can){
 	ctx.fillText(S[Math.round(b/45)]+"   "+b+" Deg",10,0.95*high);
 	
 }
+
+function drawLamp(can){
+	// makes a colored lamp indicator 
+	// can is the canvas id to draw into assumed size is 100 high, 118  wide
+	
+	// Retrieve the signals frm the sensorData object
+	var b = getSensor("Lamp");
+	
+	// general variables
+	c=document.getElementById(can);
+	var ctx = c.getContext("2d");
+	ctx.setTransform(1, 0, 0, 1, 0, 0);
+	var wide = c.width;
+	var high = c.height;
+	
+	ctx.clearRect(0, 0, wide, high);	// clear any prior drawing
+
+	// make the compass rose background
+	ctx.translate(wide/2,high/2);
+	ctx.save();
+	ctx.scale(0.8,0.8);
+	ctx.translate(0,-0.15*high);
+	ctx.beginPath();
+	ctx.arc(0, 0, 0.4*high, 0, Math.PI*2, true);
+	ctx.closePath();
+	// select the color
+	ctx.fillStyle = "rgb(230,230,230)";
+	if(b==-1) ctx.fillStyle = "rgb(50,50,50)";
+	if(b==0) ctx.fillStyle = "rgb(255,0,0)";
+	if(b==1) ctx.fillStyle = "rgb(0,255,0)";
+	if(b==2) ctx.fillStyle = "rgb(0,0,255)";
+
+	ctx.fill();
+	ctx.fillStyle = "rgb(0,0,0)";
+	ctx.stroke();
+
+	// label and numeric vbat and signal
+	ctx.setTransform(1, 0, 0, 1, 0, 0);
+	ctx.shadowOffsetX = 2;
+	ctx.shadowOffsetY = 2;
+	ctx.shadowBlur = 2;
+	ctx.shadowColor = "rgba(0, 0, 0, 0.5)";
+	ctx.fillStyle = "Black";
+	ctx.font = "16px Arial";
+	ctx.fillText("Lamp",35,0.95*high);
+	
+}
+
 
 function drawRange(can){
 	// This draws the range indicator from ultrasonic data 

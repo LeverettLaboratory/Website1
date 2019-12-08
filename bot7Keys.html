@@ -14,35 +14,41 @@
 
 <div id="keysDiv">
 	                
+     <div class="cButton2"  >
+         <div class="button2" onclick="null" id="mainUp">Up</div>
+         <div class="button2" onclick="null" id="mainDown">Down</div>
+         <div class="button2" onclick="null" id="mainStop">Stop</div>
+         <div class="button2" onclick="null" id="mainLamp">Lamp</div>
+     </div>
+     <div class="cButton2"  >
+         <div class="button2" onclick="null" id="mainX">X</div>
+         <div class="button2" onclick="null" id="mainY">Y</div>
+         <div class="button2" onclick="null" id="mainZ">Z</div>
+         <div class="button2" onclick="null" id="main0">0</div>
+     </div>
+
+     <div class="cButton2"  >
+		<!-- important to specify canvas size here not in css.  otherwise get weird aspect ratios -->
+         <canvas class="fsi" width="20" height="210" id="canvas7">Canvas 7</canvas>	 
+     </div>
+
+	<!-- important to specify canvas size here not in css.  otherwise get weird aspect ratios -->
+     <canvas class="tsi" width="370" height="20" id="canvas6">Canvas 6</canvas>  	 
+
      <div class="cButton"  >
-         <div class="button" onclick="null" id="mainArcL">  <image id="imgArcL" src=imgArcL.png> </div>
+         <div class="button3" onclick="null"></div>
          <div class="button" onclick="null" id="mainPivL">  <image id="imgPivL" src=imgPivL.png> </div>
-         <div class="button" onclick="null" id="mainCraL">  <image id="imgCraL" src=imgCraL.png> </div>
-         <div class="button" onclick="null" id="mainSonarOn">Sonar On</div>
+         <div class="button3" onclick="null"></div>
      </div>
      <div class="cButton"  >
          <div class="button" onclick="null" id="mainFwd">  <image id="imgFwd" src=imgFwd.png> </div>
          <div class="button" onclick="null" id="mainHalt">  <image id="imgHalt" src=imgHalt.png> </div>
          <div class="button" onclick="null" id="mainBack">  <image id="imgBack" src=imgBack.png> </div>
-         <div class="button" onclick="null" id="mainSonarOff">Sonar Off</div>	
      </div>
      <div class="cButton"  >
-         <div class="button" onclick="null" id="mainArcR">  <image id="imgArcR" src=imgArcR.png> </div>
+         <div class="button3" onclick="null"></div>
          <div class="button" onclick="null" id="mainPivR">  <image id="imgPivR" src=imgPivR.png> </div>
-         <div class="button" onclick="null" id="mainCraR">  <image id="imgCraR" src=imgCraR.png> </div>
-         <div class="button" onclick="null" id="mainSonarPing">Sonar Ping</div>
-     </div>
-     <div class="cButton"  >
-         <div class="button" onclick="null" id="mainClawUp">Claw Up</div>	
-         <div class="button" onclick="null" id="mainClawDown">Claw Down</div>	
-         <div class="button" onclick="null" id="mainClawInit">Claw Init</div>	
-         <div class="button" onclick="null" id="mainDrive">Drive</div>
-     </div>
-     <div class="cButton"  >
-         <div class="button" onclick="null" id="mainLampRed">Red</div>	
-         <div class="button" onclick="null" id="mainLampBlue">Blue</div>	
-         <div class="button" onclick="null" id="mainLampGreen">Green</div>	
-         <div class="button" onclick="null" id="mainLampOff">Off</div>	
+         <div class="button3" onclick="null"></div>
      </div>
 
 </div>
@@ -58,7 +64,7 @@
          <div class="button" onclick="null" id="canvasRange">Range</div>
      </div>
      <div class="cButton"  >
-         <div class="button" onclick="null" id="canvasClaw">Claw</div>
+         <div class="button" onclick="null" id="canvasGrip">Grip</div>
          <div class="button" onclick="null" ></div>
      </div>
      <div class="cButton"  >
