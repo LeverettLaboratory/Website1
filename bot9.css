@@ -157,7 +157,7 @@ body
 		margin: 2px;
 		border-radius: 8px;
 		border: 2px solid black; 
-		float: left;   
+		float: right;   
 	}
 /* small button, used on the Drive menu */
  .sm-button    
@@ -224,9 +224,97 @@ body
 
 		
 }
+/* Draw a blank button same color as background keysdiv */
+ .button3    
+{
+		font-weight: bold;
+		text-align: center;
+		font-size: 18px;
+		
+		width:90%;
+		height: 44px;
+		margin: 4px;
+		padding: 2px;
+
+		color: black;	
+		background:#dddddd;
+	
+		/* Draw a rectangle around a text */
+		/*border: 2px solid black;*/    
+		
+		/* Round each corner of the generated rectangle */
+		border-radius: 8px;
+		-moz-border-radius: 8px;   
+		-webkit-border-radius: 8px;   
+
+		
+}
+
+/* Draw a narrow blank button same color as background keysdiv */
+ .button4    
+{
+		font-weight: bold;
+		text-align: center;
+		font-size: 18px;
+		
+		width:80%;
+		height: 44px;
+		margin: 4px;
+		padding: 2px;
+
+		color: black;	
+		background:#dddddd;
+	
+		/* Draw a rectangle around a text */
+		/*border: 2px solid black;*/    
+		
+		/* Round each corner of the generated rectangle */
+		border-radius: 8px;
+		-moz-border-radius: 8px;   
+		-webkit-border-radius: 8px;   
+
+		
+}
+
+/* Draw narrow button */
+ .button2    
+{
+		font-weight: bold;
+		text-align: center;
+		font-size: 18px;
+		
+		width:80%;
+		height: 44px;
+		margin: 2px;
+		padding: 2px;
+
+		/* text is white on the button */
+		color: black;	
+		background: #FFFFFF;
+	
+		/* Draw a rectangle around a text */
+		border: 2px solid black;    
+		
+		/* Round each corner of the generated rectangle */
+		border-radius: 8px;
+		-moz-border-radius: 8px;   
+		-webkit-border-radius: 8px;   
+
+		
+}
+
+
 /* Collapse button columns into a class */
 .cButton{
                 float: left;
                 width: 126px;
 }
+
+/* Narrow button column 2/3*/
+.cButton2{
+                float: left;
+                width: 84px;
+}
+
+
 

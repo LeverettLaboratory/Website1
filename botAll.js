@@ -617,6 +617,77 @@ function drawGrip(can){
 
 }
 
+function drawCam(can){
+	// This draws the pi camera indicators for motor C on Rover 9 
+	// can is the canvas id to draw into assumed size is 100 high, 118  wide
+	
+	var pa = -getSensor("PowerC");
+	var pb = -getSensor("PosC");
+	
+	// general variables
+	c=document.getElementById(can);
+	var ctx = c.getContext("2d");
+	var wide = c.width;
+	var high = c.height;
+	
+	ctx.shadowOffsetX = 5;
+	ctx.shadowOffsetY = 5;
+	ctx.shadowBlur = 2;
+	ctx.shadowColor = "rgba(0, 0, 0, 0.5)";
+	 
+	// power variables
+	var pmax = 100;
+	var spa = Math.abs(pa);
+	var spb = Math.abs(pb);
+	
+	ctx.clearRect(0, 0, wide, high);	// clear any prior drawing
+
+	// scale the power levels
+	if(spa>pmax)spa=pmax;
+	spa=spa/pmax*high*0.375;
+	
+	if(spb>pmax)spb=pmax;
+	spb=spb/pmax*high*0.375;
+
+	// draw the bar graphs, B is left motor, A is right
+	if(pb==0){
+		ctx.fillStyle = "rgb(0,0,0)";
+		ctx.fillRect(10,high*0.375-1,wide*0.3,2);		
+	}else{
+		if(pb>0){
+			ctx.fillStyle = "rgb(120,255,120)";
+			ctx.fillRect(10,high*0.375-spb,wide*0.3,spb);
+		}else{
+			ctx.fillStyle = "rgb(120,120,255)";
+			ctx.fillRect(10,high*0.375,wide*0.3,spb);
+		}
+	}
+	
+	if(pa==0){
+		ctx.fillStyle = "rgb(0,0,0)";
+		ctx.fillRect(10+wide/2,high*0.375-1,wide*0.3,2);		
+	}else{
+		if(pa>0){
+			ctx.fillStyle = "rgb(120,255,120)";
+			ctx.fillRect(10+wide/2,high*0.375-spa,wide*0.3,spa);
+		}else{
+			ctx.fillStyle = "rgb(120,120,255)";
+			ctx.fillRect(10+wide/2,high*0.375,wide*0.3,spa);
+		}
+	}
+
+	// label and numeric vbat and signal
+	ctx.shadowOffsetX = 2;
+	ctx.shadowOffsetY = 2;
+	ctx.fillStyle = "Black";
+	ctx.font = "16px Arial";
+	ctx.fillText(pb,10,high*0.70);
+	ctx.fillText("Cam",10,high*0.95);
+	ctx.fillText(pa,10+wide/2,high*0.70);
+	ctx.fillText("Power",10+wide/2,high*0.95);
+	
+}
+
 function drawPitchRoll(can){
 	// This draws Pitch and Roll indicators for a bot with an accelerometer 
 	// can is the canvas id to draw into assumed size is 100 high, 118  wide

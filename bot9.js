@@ -33,8 +33,8 @@ window.onload = function(){
 		// functions until after canvas and botAll.js script have loaded
 		canvas1fn=drawBatSig;
 		canvas2fn=drawPower;
-		canvas3fn=drawCompass;
-		canvas4fn=drawClaw;
+		canvas3fn=drawCam;
+		canvas4fn=drawNone;
 		canvas5fn=drawNone;
 		canvas6fn=drawTurnSpeedIndex;
 		canvas7fn=drawFwdSpeedIndex;
@@ -88,94 +88,41 @@ document.onclick = function clickHandler(event){
 		// main menu:
 		case "keysDiv":
 			switch(id){
-				case "mainArcL":
-				case "imgArcL":
-					setupCmd(130,100,1,0);
-					keyPopup('popupArc',"Arc Fwd Left");
-				break;
-				case "mainPivL":
-				case "imgPivL":
-					keyPopup('popupPivot',"Pivot Left");
-					setupCmd(121,1,0,0);
-				break;
-				case "mainCraL":
-				case "imgCraL":
-					setupCmd(130,100,-1,0);
-					keyPopup('popupArc',"Arc Back Left");
-				break; 
+			
 				case "mainFwd":
 				case "imgFwd":
-					keyPopup('popupMove',"Move Fwd");
-					setupCmd(111,100,0,0);
+					sendCommand(151,0,0,0);
 				break;
 				case "mainHalt":
 				case "imgHalt":
-					setupCmd(0,0,0,0);
-					execCmd();
+					sendCommand(0,0,0,0);
 				break;
 				case "mainBack":
 				case "imgBack":
-					keyPopup('popupMove',"Move Back");
-					setupCmd(111,-100,0,0);
-				break;
-				case "mainArcR":
-				case "imgArcR":
-					setupCmd(130,-100,-1,0);
-					keyPopup('popupArc',"Arc Fwd Right");
+					sendCommand(152,0,0,0);
 				break;
 				case "mainPivR":
 				case "imgPivR":
-					keyPopup('popupPivot',"Pivot Right");
-					setupCmd(121,-1,0,0);
+					sendCommand(154,0,0,0);
 				break;
-				case "mainCraR":
-				case "imgCraR":
-					setupCmd(130,-100,1,0);
-					keyPopup('popupArc',"Arc Back Right");
-				break;			
-				case "mainDrive":
-					keyPopup('popupDrive',"Drive Menu");
+				case "mainPivL":
+				case "imgPivL":
+					sendCommand(153,0,0,0);
 				break;
-				case "mainClawUp":
-					setupCmd(403,0,0,0);
-					execCmd();
-					break;
-				case "mainClawDown":
-					setupCmd(404,0,0,0);
-					execCmd();
-					break;
-				case "mainClawInit":
-					setupCmd(401,0,0,0);
-					execCmd();
-					break;
-				case "mainLampRed":
-					setupCmd(510,0,0,0);
-					execCmd();
-				break;
-				case "mainLampGreen":
-					setupCmd(510,1,0,0);
-					execCmd();
-				break;
-				case "mainLampBlue":
-					setupCmd(510,2,0,0);
-					execCmd();
-				break;
-				case "mainLampOff":
-					setupCmd(512,-1,0,0);
-					execCmd();
-				break;
-				case "mainScreen":
-					document.getElementById("status").innerHTML = "screen: "+window.innerWidth+" x "+window.innerHeight;
-					break;
-				case "mainSonarPing":
-					sendCommand(7,1,0,0);
+
+				case "mainStop":
+					sendCommand(600,2,0,0);
 					break;							
-				case "mainSonarOn":
-					sendCommand(7,2,0,0);
+				case "mainUp":
+					setupCmd(601,0,0,0);
+					execCmd();
+					break;
+				case "mainDown":
+					sendCommand(602,2,0,0);
 					break;							
-				case "mainSonarOff":
-					sendCommand(7,0,0,0);
-					break;					
+				case "mainStow":
+					sendCommand(603,2,0,0);
+					break;							
 				
 				case "canvas1":
 					canvasSelect=1;
