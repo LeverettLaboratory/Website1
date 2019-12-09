@@ -8,7 +8,7 @@
  */
 
 var botNum = 8;
-var imageType = 1;										// The initial image type to load
+var imageType = 0;										// The initial image type to load
 var imageSrcPre = "/TestOne/PlainCam1?bot=8&cam=4&";	// start of string for image URL prior to type=...
 var imageSrcPost="&timestamp=";							// end of string for image URL
 
@@ -35,7 +35,7 @@ window.onload = function(){
 		canvas2fn=drawPower;
 		canvas3fn=drawCompass;
 		canvas4fn=drawClaw;
-		canvas5fn=drawNone;
+		canvas5fn=drawLamp;
 		canvas6fn=drawTurnSpeedIndex;
 		canvas7fn=drawFwdSpeedIndex;
 	}				
@@ -84,121 +84,67 @@ document.onclick = function clickHandler(event){
 	    
 	    switch(menu){
 
-			// main menu:
-			case "keysDiv":
-				switch(id){
-					case "mainArcL":
-					case "imgArcL":
-						setupCmd(130,100,1,0);
-						keyPopup('popupArc',"Arc Fwd Left");
+		// main menu:
+		case "keysDiv":
+			switch(id){
+			
+				case "mainFwd":
+				case "imgFwd":
+					sendCommand(151,0,0,0);
+				break;
+				case "mainHalt":
+				case "imgHalt":
+					sendCommand(0,0,0,0);
+				break;
+				case "mainBack":
+				case "imgBack":
+					sendCommand(152,0,0,0);
+				break;
+				case "mainPivR":
+				case "imgPivR":
+					sendCommand(154,0,0,0);
+				break;
+				case "mainPivL":
+				case "imgPivL":
+					sendCommand(153,0,0,0);
+				break;
+
+				case "mainUp":
+					setupCmd(403,0,0,0);
+					execCmd();
 					break;
-					case "mainPivL":
-					case "imgPivL":
-						keyPopup('popupPivot',"Pivot Left");
-						setupCmd(121,1,0,0);
+				case "mainDown":
+					sendCommand(404,2,0,0);
+					break;							
+				case "mainInit":
+					sendCommand(401,2,0,0);
+					break;							
+				case "mainLamp":
+					sendCommand(515,2,0,0);
+					break;							
+									
+				case "canvas1":
+					canvasSelect=1;
+					keyPopup('popupCanvas','Canvas 1 Menu');
 					break;
-					case "mainCraL":
-					case "imgCraL":
-						setupCmd(130,100,-1,0);
-						keyPopup('popupArc',"Arc Back Left");
-					break; 
-					case "mainFwd":
-					case "imgFwd":
-						keyPopup('popupMove',"Move Fwd");
-						setupCmd(111,100,0,0);
+				case "canvas2":
+					canvasSelect=2;
+					keyPopup('popupCanvas','Canvas 2 Menu');
 					break;
-					case "mainHalt":
-					case "imgHalt":
-						setupCmd(0,0,0,0);
-						execCmd();
+				case "canvas3":
+					canvasSelect=3;
+					keyPopup('popupCanvas','Canvas 3 Menu');
 					break;
-					case "mainBack":
-					case "imgBack":
-						keyPopup('popupMove',"Move Back");
-						setupCmd(111,-100,0,0);
+				case "canvas4":
+					canvasSelect=4;
+					keyPopup('popupCanvas','Canvas 4 Menu');
 					break;
-					case "mainArcR":
-					case "imgArcR":
-						setupCmd(130,-100,-1,0);
-						keyPopup('popupArc',"Arc Fwd Right");
-					break;
-					case "mainPivR":
-					case "imgPivR":
-						keyPopup('popupPivot',"Pivot Right");
-						setupCmd(121,-1,0,0);
-					break;
-					case "mainCraR":
-					case "imgCraR":
-						setupCmd(130,-100,1,0);
-						keyPopup('popupArc',"Arc Back Right");
-					break;			
-					case "mainDrive":
-						keyPopup('popupDrive',"Drive Menu");
-					break;
-					case "mainClawUp":
-						setupCmd(403,0,0,0);
-						execCmd();
-						break;
-					case "mainClawDown":
-						setupCmd(404,0,0,0);
-						execCmd();
-						break;
-					case "mainClawInit":
-						setupCmd(401,0,0,0);
-						execCmd();
-						break;
-					case "mainLampRed":
-						setupCmd(510,0,0,0);
-						execCmd();
-					break;
-					case "mainLampGreen":
-						setupCmd(510,1,0,0);
-						execCmd();
-					break;
-					case "mainLampBlue":
-						setupCmd(510,2,0,0);
-						execCmd();
-					break;
-					case "mainLampOff":
-						setupCmd(512,-1,0,0);
-						execCmd();
-					break;
-					case "mainScreen":
-						document.getElementById("status").innerHTML = "screen: "+window.innerWidth+" x "+window.innerHeight;
-						break;
-					case "mainSonarPing":
-						sendCommand(7,1,0,0);
-						break;							
-					case "mainSonarOn":
-						sendCommand(7,2,0,0);
-						break;							
-					case "mainSonarOff":
-						sendCommand(7,0,0,0);
-						break;					
-					
-					case "canvas1":
-						canvasSelect=1;
-						keyPopup('popupCanvas','Canvas 1 Menu');
-					break;
-					case "canvas2":
-						canvasSelect=2;
-						keyPopup('popupCanvas','Canvas 2 Menu');
-					break;
-					case "canvas3":
-						canvasSelect=3;
-						keyPopup('popupCanvas','Canvas 3 Menu');
-					break;
-					case "canvas4":
-						canvasSelect=4;
-						keyPopup('popupCanvas','Canvas 4 Menu');
-					break;
-					case "canvas5":
-						canvasSelect=5;
-						keyPopup('popupCanvas','Canvas 5 Menu');
+				case "canvas5":
+					canvasSelect=5;
+					keyPopup('popupCanvas','Canvas 5 Menu');
 					break;
 				}
-			break;
-			
+			break;			
 
 			// Canvas Menu
 			case "popupCanvas":
