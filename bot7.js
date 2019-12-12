@@ -10,7 +10,7 @@
  */
 
 var botNum = 7;
-var imageType = 1;										// The initial image type to load
+var imageType = 0;										// The initial image type to load
 var imageSrcPre = "/TestOne/PlainCam1?bot=7&cam=3&";	// start of string for image URL prior to type=...
 var imageSrcPost="&timestamp=";							// end of string for image URL
 
