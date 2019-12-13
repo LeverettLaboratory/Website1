@@ -99,6 +99,17 @@ function updateCommand(){
     }
 }
 
+
+function sendCommandPi(command, data1, data2, data3){
+	// This uses request3 object to send commands to pigpiod on PiOne
+	var url = "/TestOne/LabTest?cmd="+command+"&p1="+data1+"&p2="+data2+"&p3="+data3+"&timestamp="+new Date().getTime();
+    request3.open("GET",url,true);
+    request3.onreadystatechange = updateCommand;	/* Call updateCommand() when the reply is rx */
+    request3.send(null);
+    document.getElementById("status").innerHTML = "commandPi "+command+", "+data1+", "+data2+", "+data3;
+   
+}
+
 function setupCmd(cmd, d1, d2, d3){
 	command = cmd;
 	data1 = d1;

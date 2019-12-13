@@ -25,6 +25,9 @@ var popupList = new Array(
 var testValue = 0;
 var testValue2 = 0;
 
+var pan = 1500;
+var tilt = 1500;
+
 //These gauges must wait till the window is fully loaded or it throws an error
 window.onload = function(){
 	// Also check that the gaugesDiv is on this page, it does not appear on image only pages
@@ -110,18 +113,30 @@ document.onclick = function clickHandler(event){
 					sendCommand(153,0,0,0);
 				break;
 
-				case "mainStop":
-					sendCommand(600,2,0,0);
-					break;							
-				case "mainUp":
-					setupCmd(601,0,0,0);
-					execCmd();
-					break;
 				case "mainDown":
-					sendCommand(602,2,0,0);
+					if(tilt<2500)tilt+=100;
+					sendCommandPi(8,17,tilt,0);					
+					break;
+				case "mainUp":
+					if(tilt>500)tilt-=100;
+					sendCommandPi(8,17,tilt,0);					
 					break;							
-				case "mainStow":
-					sendCommand(603,2,0,0);
+				case "mainLeft":
+					if(pan<2500)pan+=100;
+					sendCommandPi(8,4,pan,0);					
+					break;							
+				case "mainRight":
+					if(pan>500)pan-=100;
+					sendCommandPi(8,4,pan,0);					
+					break;							
+				case "mainHome":
+					// set pins to output if not already done
+					sendCommandPi(0,4,1,0);					
+					sendCommandPi(0,17,1,0);					
+					pan=1500;
+					tilt=1500;
+					sendCommandPi(8,17,pan,0);					
+					sendCommandPi(8,4,tilt,0);					
 					break;							
 				
 				case "canvas1":
